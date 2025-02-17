@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './Order.css';
 import axios from 'axios';
-import baseUrl from '../../utils/baseUrl';
+import baseUrl from '../../../utils/baseUrl';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
-import { assets } from '../../../assets/assets';
+import { assets } from '../../assets/assets';
 
 const Order = () => {
    const [orders, setOrders] = useState([]);
