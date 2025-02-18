@@ -30,18 +30,22 @@ const Add = () => {
       formData.append('category', data.category);
       formData.append('image', image);
 
-      const response = await axios.post(`${baseUrl}/api/food/add`, formData);
-      if (response.data.success) {
-         setData({
-            name: '',
-            description: '',
-            price: '',
-            category: 'Salad',
-         });
-         setImage(false);
-         toast.success(response.data.message);
-      } else {
-         toast.error(response.data.message);
+      try {
+         const response = await axios.post(`${baseUrl}/api/food/add`, formData);
+         if (response.data.success) {
+            setData({
+               name: '',
+               description: '',
+               price: '',
+               category: 'Salad',
+            });
+            setImage(false);
+            toast.success(response.data.message);
+         } else {
+            toast.error(response.data.message);
+         }
+      } catch (error) {
+         console.log(error);
       }
    };
 
