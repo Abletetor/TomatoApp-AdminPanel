@@ -15,7 +15,6 @@ const Order = () => {
          const response = await axios.get(`${baseUrl}/api/order/list`);
          if (response.data.success) {
             setOrders(response.data.data);
-            console.log(response.data.data);
          } else {
             toast.error(response.data.message);
          }
